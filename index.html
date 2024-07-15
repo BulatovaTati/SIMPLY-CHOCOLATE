@@ -4,6 +4,130 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIMPLY CHOCOLATE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/resets.css" />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="container header-container">
+        <nav class="header-navigation">
+          <a href="./index.html" class="logo"
+            >SIMPLY <span>CHOCOLATE</span>
+            <svg class="logo-icon" width="24" height="24">
+              <use href="./icons/icons.svg#icon-logo"></use>
+            </svg>
+          </a>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="./index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">How it’s made?</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Chocolate is loved</a>
+            </li>
+          </ul>
+        </nav>
+        <ul class="socials-list">
+          <li class="socials-item">
+            <a href="https://www.instagram.com/" class="socials-link">
+              <svg class="socials-icon" width="24" height="24">
+                <use href="./icons/icons.svg#icon-instagram"></use></svg
+            ></a>
+          </li>
+          <li class="socials-item">
+            <a href="https://www.facebook.com/" class="socials-link">
+              <svg class="socials-icon" width="24" height="24">
+                <use href="./icons/icons.svg#icon-facebook"></use></svg
+            ></a>
+          </li>
+          <li class="socials-item">
+            <a href="https://x.com/" class="socials-link">
+              <svg class="socials-icon" width="24" height="24">
+                <use href="./icons/icons.svg#icon-x"></use></svg
+            ></a>
+          </li>
+        </ul>
+        <button type="button" class="menu-button-open">
+          <svg class="icon-menu" width="28" height="28" aria-label="Mobile menu switcher">
+            <use href="./icons/icons.svg#icon-menu"></use>
+          </svg>
+        </button>
+        <div class="mobile-menu">
+          <button class="button-close-menu" type="button">
+            <svg class="icon-close" width="28" height="28">
+              <use href="./icons/icons.svg#icon-cross"></use>
+            </svg>
+          </button>
+          <ul class="menu-nav-list">
+            <li class="menu-nav-item">
+              <a href="./index.html" class="menu-nav-link">Home</a>
+            </li>
+            <li class="menu-nav-item">
+              <a href="" class="menu-nav-link">How it’s made?</a>
+            </li>
+            <li class="menu-nav-item">
+              <a href="" class="menu-nav-link">Chocolate is loved</a>
+            </li>
+          </ul>
+          <ul class="socials-list">
+            <li class="socials-item">
+              <a href="https://www.instagram.com/" class="socials-link">
+                <svg class="socials-icon" width="24" height="24">
+                  <use href="./icons/icons.svg#icon-instagram"></use></svg
+              ></a>
+            </li>
+            <li class="socials-item">
+              <a href="https://www.facebook.com/" class="socials-link">
+                <svg class="socials-icon" width="24" height="24">
+                  <use href="./icons/icons.svg#icon-facebook"></use></svg
+              ></a>
+            </li>
+            <li class="socials-item">
+              <a href="https://x.com/" class="socials-link">
+                <svg class="socials-icon" width="24" height="24">
+                  <use href="./icons/icons.svg#icon-x"></use></svg
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container hero-container overlay">
+          <h1 class="hero-title">
+            Treat yourself or a loved one to our finest ingredients for a moment of pure delight!
+          </h1>
+          <div class="hero-buttons">
+            <button type="button" class="hero-btn btn">Buy now</button>
+            <a href="" class="hero-second-btn btn">How it’s made</a>
+            <a href="#made" class="hero-scroll-btn"
+              >scroll down
+
+              <svg class="hero-scroll-icon" width="16" height="16">
+                <use href="./icons/icons.svg#icon-down"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
 </html>
