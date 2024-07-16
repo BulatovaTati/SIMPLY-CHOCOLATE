@@ -68,7 +68,14 @@ body {
   line-height: 1.29;
   letter-spacing: -0.03em;
   color: currentColor;
+  transition: text-shadow 250ms ease;
 }
+
+.logo:hover,
+.logo:focus {
+  text-shadow: #fd9222 1px 0 10px;
+}
+
 @media screen and (min-width: 768px) {
   .logo {
     padding: 27px 0 38px 0;
@@ -92,6 +99,12 @@ body {
   fill: white;
   stroke-width: 2px;
   stroke: #fd9222;
+  transition: stroke 250ms ease;
+}
+
+.logo:hover .logo-icon,
+.logo:focus .logo-icon {
+  stroke: rgba(17, 17, 17, 0.784);
 }
 
 .nav-list {
@@ -390,12 +403,7 @@ body {
   transition: fill 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
     stroke 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-@media screen and (min-width: 768px) {
-  .hero-scroll-icon {
-    width: 38px;
-    height: 38px;
-  }
-}
+
 .hero-scroll-btn:hover,
 .hero-scroll-btn:focus {
   color: #fd9222;
