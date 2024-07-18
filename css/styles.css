@@ -714,3 +714,84 @@ body {
   letter-spacing: -0.02em;
   color: #111;
 }
+
+.made {
+  padding-bottom: 80px;
+}
+
+.made-title {
+  margin-bottom: 32px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #111;
+}
+
+.made-title span {
+  color: #fd9222;
+}
+
+.made-text {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.33333;
+  color: #111;
+}
+
+@media screen and (min-width: 768px) {
+  .made-text {
+    margin-bottom: 28px;
+    width: 335px;
+  }
+}
+
+.made-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.made-info-container {
+  padding: 14px 20px;
+  border-radius: 15px;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .made-info-container {
+    padding: 32px;
+  }
+}
+
+.made-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.02em;
+  color: #111;
+}
+
+.made-item:not(:last-child) {
+  margin-bottom: 18px;
+}
+
+.made-icon {
+  min-width: 8px;
+}
+
+.made-image {
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .made-image {
+    margin: 0 auto;
+  }
+}
