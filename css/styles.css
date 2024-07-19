@@ -23,7 +23,7 @@ body {
 @media screen and (min-width: 768px) {
   .container {
     width: 768px;
-    padding: 0px 16px;
+    padding: 0px 32px;
   }
 }
 
@@ -445,6 +445,12 @@ body {
   background-color: #1e1823;
 }
 
+@media screen and (min-width: 1200px) {
+  .benefits-container {
+    padding: 0 50px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .benefits {
     padding-top: 50px;
@@ -750,11 +756,25 @@ body {
     width: 335px;
   }
 }
+
 @media screen and (min-width: 768px) {
   .made-container {
+    padding: 0 77px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .made-container {
+    padding: 0 32px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .made-photo-container {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    padding: 0;
   }
 }
 
@@ -767,6 +787,12 @@ body {
 @media screen and (min-width: 768px) {
   .made-info-container {
     padding: 32px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .made-info-container {
+    max-width: 516px;
   }
 }
 
@@ -805,6 +831,13 @@ body {
 
 @media screen and (min-width: 768px) {
   .made-image {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .made-image {
+    margin: 0;
   }
 }
