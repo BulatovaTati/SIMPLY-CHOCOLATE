@@ -1114,3 +1114,269 @@ body {
     display: none;
   }
 }
+
+.reviews {
+  padding-bottom: 80px;
+}
+
+@media screen and (min-width: 768px) {
+  .reviews {
+    padding-bottom: 100px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .reviews {
+    padding-bottom: 120px;
+  }
+}
+
+.reviews-title {
+  margin-bottom: 74px;
+}
+
+@media screen and (min-width: 768px) {
+  .reviews-title {
+    margin-bottom: 91px;
+  }
+}
+
+.card-review {
+  max-width: 335px;
+  min-height: 200px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 9px 100px 0 rgba(17, 17, 17, 0.03);
+  background: #fff;
+  overflow-y: auto;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .card-review {
+    width: 344px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .card-review {
+    min-width: 360px;
+  }
+}
+
+.image-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-content {
+  padding-top: 56px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 26px;
+  text-align: center;
+}
+
+.card-image {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  margin-top: -40px;
+}
+
+.swiper-pagination-bullet {
+  color: rgba(17, 17, 17, 0.1);
+  width: 13px;
+  height: 13px;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fd9222;
+  width: 28px;
+  height: 13px;
+  border-radius: 13px;
+}
+
+.swiper-wrapper {
+  margin-top: 50px;
+}
+
+.reviews-item-title {
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.33333;
+  color: #111;
+}
+
+.reviews-item-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.02em;
+
+  color: rgba(17, 17, 17, 0.7);
+}
+
+.reviews-btn {
+  display: flex;
+  margin: 32px auto auto;
+  border: 1px solid #fd9222;
+  border-radius: 100px;
+  padding: 12px 28px;
+  min-width: 165px;
+  height: 41px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  color: #111;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 250ms ease, border-color 250ms ease;
+}
+
+.reviews-btn:hover,
+.reviews-btn:focus {
+  color: #fd9222;
+  border-color: #fd9222;
+}
+
+.footer {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  background-color: #1e1823;
+}
+
+.footer-title {
+  margin-bottom: 32px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #fff;
+}
+
+.socials-title {
+  margin-bottom: 14px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+
+  color: #fff;
+}
+
+.contacts-item-link {
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.02em;
+  color: #fff;
+  transition: color 250ms ease;
+}
+
+.contacts-item-link:hover,
+.contacts-item-link:focus {
+  color: #fd9222;
+}
+
+.contacts-list {
+  margin-bottom: 32px;
+}
+
+.contacts-item:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.footer-up-container {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-socials-list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.footer-socials-link {
+  padding: 0;
+}
+
+.footer-down-container {
+  margin-top: 32px;
+}
+
+.menu-nav-list {
+  margin-bottom: 32px;
+}
+
+.menu-nav-link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14286;
+  letter-spacing: -0.02em;
+  color: #fff;
+  transition: color 250ms ease;
+}
+
+.menu-nav-link:hover,
+.menu-nav-link:focus {
+  color: #fd9222;
+}
+
+.menu-nav-item:not(:last-child) {
+  margin-bottom: 18px;
+}
+
+@media screen and (min-width: 375px) {
+  .subscribe-form {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.subscribe-form-input {
+  margin-bottom: 16px;
+  width: 100%;
+  height: 45px;
+  padding-left: 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  background-color: transparent;
+  outline: transparent;
+  color: #fff;
+}
+
+@media screen and (min-width: 375px) {
+  .subscribe-form-input {
+    width: 207px;
+  }
+}
+
+.subscribe-form-input::placeholder {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.subscribe-submit-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100px;
+  padding: 14px 26px;
+  min-width: 120px;
+  height: 45px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  background-color: #fd9222;
+  outline: transparent;
+  border: none;
+  cursor: pointer;
+}

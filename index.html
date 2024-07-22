@@ -18,6 +18,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/resets.css" />
     <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/styles.css" />
@@ -46,20 +47,36 @@
         </nav>
         <ul class="socials-list">
           <li class="socials-item">
-            <a href="https://www.instagram.com/" class="socials-link">
+            <a
+              href="https://www.instagram.com/"
+              class="socials-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg class="socials-icon" width="24" height="24">
                 <use href="./icons/icons.svg#icon-instagram"></use></svg
             ></a>
           </li>
           <li class="socials-item">
-            <a href="https://www.facebook.com/" class="socials-link">
+            <a
+              href="https://www.facebook.com/"
+              class="socials-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg class="socials-icon" width="24" height="24">
                 <use href="./icons/icons.svg#icon-facebook"></use></svg
             ></a>
           </li>
           <li class="socials-item">
             <a href="https://x.com/" class="socials-link">
-              <svg class="socials-icon" width="24" height="24">
+              <svg
+                class="socials-icon"
+                width="24"
+                height="24"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <use href="./icons/icons.svg#icon-x"></use></svg
             ></a>
           </li>
@@ -88,19 +105,34 @@
           </ul>
           <ul class="socials-list">
             <li class="socials-item">
-              <a href="https://www.instagram.com/" class="socials-link">
+              <a
+                href="https://www.instagram.com/"
+                class="socials-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <svg class="socials-icon" width="24" height="24">
                   <use href="./icons/icons.svg#icon-instagram"></use></svg
               ></a>
             </li>
             <li class="socials-item">
-              <a href="https://www.facebook.com/" class="socials-link">
+              <a
+                href="https://www.facebook.com/"
+                class="socials-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <svg class="socials-icon" width="24" height="24">
                   <use href="./icons/icons.svg#icon-facebook"></use></svg
               ></a>
             </li>
             <li class="socials-item">
-              <a href="https://x.com/" class="socials-link">
+              <a
+                href="https://x.com/"
+                class="socials-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <svg class="socials-icon" width="24" height="24">
                   <use href="./icons/icons.svg#icon-x"></use></svg
               ></a>
@@ -669,7 +701,7 @@
           </ul>
         </div>
       </section>
-      <section class="sellers">
+      <section class="sellers" id="sellers">
         <div class="container">
           <h2 class="sellers-title title">tOp <span class="accent-title">Sellers</span></h2>
           <ul class="sellers-list">
@@ -768,8 +800,246 @@
           </ul>
         </div>
       </section>
+      <section class="reviews" id="reviews">
+        <div class="container">
+          <h2 class="reviews-title title"><span class="accent-title">chocolate</span> is loved</h2>
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="card-review">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        srcset="
+                          ./images/reviews/Victoria-Dobrzhanska-1x.png 1x,
+                          ./images/reviews/Victoria-Dobrzhanska-1x.png 2x
+                        "
+                        alt="Victoria Dobrzhanska"
+                        class="reviews-item-image"
+                        width="80"
+                        height="80"
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h3 class="reviews-item-title">Victoria Dobrzhanska</h3>
+                    <p class="reviews-item-text">
+                      I love this chocolate bar. Perfect combination of light crispy wafer, covered
+                      in a thin layer chocolate.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card-review">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        srcset="
+                          ./images/reviews/Nazar-Babenko-1x.png 1x,
+                          ./images/reviews/Nazar-Babenko-2x.png 2x
+                        "
+                        alt="Nazar Babenko"
+                        class="reviews-item-image"
+                        width="80"
+                        height="80"
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h3 class="reviews-item-title">Nazar Babenko</h3>
+                    <p class="reviews-item-text">
+                      This chocolate confection is a delight! A delight! The wafer is light and
+                      crisp, the hazelnut cream is smooth, and the chocolate is good.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card-review">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        srcset="
+                          ./images/reviews/Olena-Kampusch-1x.png 1x,
+                          ./images/reviews/Olena-Kampusch-2x.png 2x
+                        "
+                        alt="Olena Kampusch"
+                        class="reviews-item-image"
+                        width="80"
+                        height="80"
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h3 class="reviews-item-title">Olena Kampusch</h3>
+                    <p class="reviews-item-text">
+                      Chocolate is a family favourite treat. Love the delicious smooth chocolate and
+                      the creaminess inside. The wafer is soft but crunchy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card-review">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="./images/reviews/John-Doe_icon.png"
+                        alt="Your Name"
+                        class="reviews-item-image"
+                        width="80"
+                        height="80"
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h3 class="reviews-item-title">John Doe</h3>
+                    <p class="reviews-item-text">Your feedback may be here</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card-review">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="./images/reviews/John-Doe_icon.png"
+                        alt="Your Name"
+                        class="reviews-item-image"
+                        width="80"
+                        height="80"
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h3 class="reviews-item-title">John Doe</h3>
+                    <p class="reviews-item-text">Your feedback may be here</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card-review">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="./images/reviews/John-Doe_icon.png"
+                        alt="Your Name"
+                        class="reviews-item-image"
+                        width="80"
+                        height="80"
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h3 class="reviews-item-title">John Doe</h3>
+                    <p class="reviews-item-text">Your feedback may be here</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-wrapper"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <button class="reviews-btn">Leave a review</button>
+        </div>
+      </section>
     </main>
-    <footer></footer>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-up-container">
+          <p class="footer-title title">
+            <span class="accent-title">Chocolate</span> a delicious cure for a bad day
+          </p>
+          <p class="socials-title">Social networks</p>
+          <ul class="socials-list footer-socials-list">
+            <li class="socials-item">
+              <a
+                href="https://www.instagram.com/"
+                class="socials-link footer-socials-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="socials-icon" width="20" height="20">
+                  <use href="./icons/icons.svg#icon-instagram"></use></svg
+              ></a>
+            </li>
+            <li class="socials-item">
+              <a
+                href="https://www.facebook.com/"
+                class="socials-link footer-socials-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="socials-icon" width="20" height="20">
+                  <use href="./icons/icons.svg#icon-facebook"></use></svg
+              ></a>
+            </li>
+            <li class="socials-item">
+              <a
+                href="https://x.com/"
+                class="socials-link footer-socials-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="socials-icon" width="20" height="20">
+                  <use href="./icons/icons.svg#icon-x"></use></svg
+              ></a>
+            </li>
+          </ul>
+          <address>
+            <ul class="contacts-list">
+              <li class="contacts-item">
+                <a href="tel:+380684439426" class="contacts-item-link">+380 (68) 443-94-26</a>
+              </li>
+              <li class="contacts-item">
+                <a
+                  href="mailto:simplychoc@gmail.com"
+                  class="contacts-item-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >simplychoc@gmail.com</a
+                >
+              </li>
+            </ul>
+          </address>
+        </div>
+        <div class="footer-down-container">
+          <ul class="menu-nav-list">
+            <li class="menu-nav-item">
+              <a href="./index.html" class="menu-nav-link">Home</a>
+            </li>
+            <li class="menu-nav-item">
+              <a href="#made" class="menu-nav-link">How it’s made?</a>
+            </li>
+            <li class="menu-nav-item">
+              <a href="#products" class="menu-nav-link">Our products</a>
+            </li>
+            <li class="menu-nav-item">
+              <a href="#sellers" class="menu-nav-link">Top sellers</a>
+            </li>
+            <li class="menu-nav-item">
+              <a href="#reviews" class="menu-nav-link">Chocolate is loved</a>
+            </li>
+          </ul>
+          <form class="subscribe-form" autocomplete="off">
+            <label class="subscribe-form-label">
+              <input
+                class="subscribe-form-input"
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </label>
+            <button class="subscribe-submit-button" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </footer>
     <script src="./js/flip-card.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/swiper.js"></script>
   </body>
 </html>
