@@ -1248,6 +1248,13 @@ body {
   background-color: #1e1823;
 }
 
+@media screen and (min-width: 768px) {
+  .footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
 .footer-title {
   margin-bottom: 32px;
   font-weight: 500;
@@ -1258,12 +1265,22 @@ body {
   color: #fff;
 }
 
+@media screen and (min-width: 768px) {
+  .footer-title {
+    max-width: 300px;
+    margin-right: auto;
+    margin-bottom: 0;
+    font-size: 28px;
+    line-height: 1.21429;
+    text-transform: none;
+  }
+}
+
 .socials-title {
   margin-bottom: 14px;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28571;
-
   color: #fff;
 }
 
@@ -1286,12 +1303,28 @@ body {
   margin-bottom: 32px;
 }
 
+@media screen and (min-width: 768px) {
+  .contacts-list {
+    margin-bottom: 50px;
+  }
+}
+
 .contacts-item:not(:last-child) {
   margin-bottom: 4px;
 }
 
 .footer-up-container {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+  .footer-up-container {
+    display: flex;
+  }
+}
+
+.footer-socials-container {
+  margin-right: 32px;
 }
 
 .footer-socials-list {
@@ -1301,6 +1334,11 @@ body {
   margin-bottom: 32px;
 }
 
+@media screen and (min-width: 768px) {
+  .footer-socials-list {
+    margin-bottom: 0;
+  }
+}
 .footer-socials-link {
   padding: 0;
 }
@@ -1309,11 +1347,37 @@ body {
   margin-top: 32px;
 }
 
+@media screen and (min-width: 768px) {
+  .footer-down-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 24px;
+  }
+}
+
+.address-text {
+  margin-bottom: 14px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #fff;
+}
+
 .menu-nav-list {
   margin-bottom: 32px;
 }
 
+@media screen and (min-width: 768px) {
+  .menu-nav-list {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+}
+
 .menu-nav-link {
+  display: block;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14286;
@@ -1329,6 +1393,16 @@ body {
 
 .menu-nav-item:not(:last-child) {
   margin-bottom: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-nav-item:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .tablet-hide {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 375px) {
@@ -1356,6 +1430,13 @@ body {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .subscribe-form-input {
+    width: 232px;
+    margin-bottom: 0;
+  }
+}
+
 .subscribe-form-input::placeholder {
   font-weight: 400;
   font-size: 14px;
@@ -1379,4 +1460,11 @@ body {
   outline: transparent;
   border: none;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .subscribe-submit-button {
+    width: 128px;
+    padding: 14px 28px;
+  }
 }
