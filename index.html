@@ -20,124 +20,74 @@
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/resets.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
     <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <header>
       <div class="container header-container">
-        <nav class="header-navigation">
-          <a href="./index.html" class="logo"
-            >SIMPLY <span>CHOCOLATE</span>
-            <svg class="logo-icon" width="24" height="24">
-              <use href="./icons/icons.svg#icon-logo"></use>
-            </svg>
-          </a>
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a href="./index.html" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="" class="nav-link">How it’s made?</a>
-            </li>
-            <li class="nav-item">
-              <a href="" class="nav-link">Chocolate is loved</a>
-            </li>
-          </ul>
-        </nav>
-        <ul class="socials-list">
-          <li class="socials-item">
-            <a
-              href="https://www.instagram.com/"
-              class="socials-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg class="socials-icon" width="24" height="24">
-                <use href="./icons/icons.svg#icon-instagram"></use></svg
-            ></a>
-          </li>
-          <li class="socials-item">
-            <a
-              href="https://www.facebook.com/"
-              class="socials-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg class="socials-icon" width="24" height="24">
-                <use href="./icons/icons.svg#icon-facebook"></use></svg
-            ></a>
-          </li>
-          <li class="socials-item">
-            <a href="https://x.com/" class="socials-link">
-              <svg
-                class="socials-icon"
-                width="24"
-                height="24"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <use href="./icons/icons.svg#icon-x"></use></svg
-            ></a>
-          </li>
-        </ul>
-        <button type="button" class="menu-button-open">
-          <svg class="icon-menu" width="28" height="28" aria-label="Mobile menu switcher">
-            <use href="./icons/icons.svg#icon-menu"></use>
+        <a href="./index.html" class="logo"
+          >SIMPLY <span>CHOCOLATE</span>
+          <svg class="logo-icon" width="24" height="24">
+            <use href="./icons/icons.svg#icon-logo"></use>
           </svg>
-        </button>
-        <div class="mobile-menu">
-          <button class="button-close-menu" type="button">
-            <svg class="icon-close" width="28" height="28">
-              <use href="./icons/icons.svg#icon-cross"></use>
-            </svg>
-          </button>
-          <ul class="menu-nav-list">
-            <li class="menu-nav-item">
-              <a href="./index.html" class="menu-nav-link">Home</a>
-            </li>
-            <li class="menu-nav-item">
-              <a href="" class="menu-nav-link">How it’s made?</a>
-            </li>
-            <li class="menu-nav-item">
-              <a href="" class="menu-nav-link">Chocolate is loved</a>
-            </li>
-          </ul>
-          <ul class="socials-list">
-            <li class="socials-item">
-              <a
-                href="https://www.instagram.com/"
-                class="socials-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg class="socials-icon" width="24" height="24">
-                  <use href="./icons/icons.svg#icon-instagram"></use></svg
-              ></a>
-            </li>
-            <li class="socials-item">
-              <a
-                href="https://www.facebook.com/"
-                class="socials-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg class="socials-icon" width="24" height="24">
-                  <use href="./icons/icons.svg#icon-facebook"></use></svg
-              ></a>
-            </li>
-            <li class="socials-item">
-              <a
-                href="https://x.com/"
-                class="socials-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg class="socials-icon" width="24" height="24">
-                  <use href="./icons/icons.svg#icon-x"></use></svg
-              ></a>
-            </li>
-          </ul>
+        </a>
+        <div class="burger js-menu js-menu-close" data-menu-button>
+          <span class="burger-icon"></span>
+        </div>
+        <div class="backdrop">
+          <div class="mobile-menu">
+            <nav class="header-navigation">
+              <ul class="nav-list">
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link current">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#made" class="nav-link">How it’s made?</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#reviews" class="nav-link">Chocolate is loved</a>
+                </li>
+              </ul>
+            </nav>
+            <ul class="socials-list">
+              <li class="socials-item">
+                <a
+                  href="https://www.instagram.com/"
+                  class="socials-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg class="socials-icon" width="24" height="24">
+                    <use href="./icons/icons.svg#icon-instagram"></use></svg
+                ></a>
+              </li>
+              <li class="socials-item">
+                <a
+                  href="https://www.facebook.com/"
+                  class="socials-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg class="socials-icon" width="24" height="24">
+                    <use href="./icons/icons.svg#icon-facebook"></use></svg
+                ></a>
+              </li>
+              <li class="socials-item">
+                <a href="https://x.com/" class="socials-link">
+                  <svg
+                    class="socials-icon"
+                    width="24"
+                    height="24"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <use href="./icons/icons.svg#icon-x"></use></svg
+                ></a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>
@@ -1037,8 +987,9 @@
         </div>
       </div>
     </footer>
+    <script src="./js/menu.js"></script>
+    <script src="./js/modal.js"></script>
     <script src="./js/flip-card.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./js/swiper.js"></script>
   </body>
