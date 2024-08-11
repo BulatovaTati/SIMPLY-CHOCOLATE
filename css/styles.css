@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -14,7 +15,6 @@ body {
   padding: 0px 20px;
   margin-left: auto;
   margin-right: auto;
-  outline: 1px solid orange;
 }
 
 @media screen and (min-width: 375px) {
@@ -173,7 +173,8 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .socials-list {  gap: 14px;
+  .socials-list {
+    gap: 14px;
   }
 }
 
@@ -1412,5 +1413,35 @@ body {
   .subscribe-submit-button {
     width: 128px;
     padding: 14px 28px;
+  }
+}
+
+.scroll-to-top {
+  display: block;
+  position: fixed;
+  bottom: 210px;
+  right: 8%;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--time) var(--cubic);
+}
+
+.scroll-to-top-icon {
+  fill: #fd9222;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.js-transparent {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media screen and (min-width: 768px) {
+  .scroll-to-top-icon {
+    width: 35px;
+    height: 35px;
   }
 }
