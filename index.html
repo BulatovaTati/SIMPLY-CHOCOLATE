@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/resets.css" />
     <link rel="stylesheet" href="./css/menu.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
     <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
@@ -894,7 +895,7 @@
             <div class="swiper-wrapper"></div>
             <div class="swiper-pagination"></div>
           </div>
-          <button class="reviews-btn">Leave a review</button>
+          <button class="reviews-btn js-open-modal" data-modal="1">Leave a review</button>
         </div>
       </section>
     </main>
@@ -993,6 +994,125 @@
         </div>
       </div>
     </footer>
+
+    <div class="modal-overlay js-overlay-modal"></div>
+    <div class="modal" data-modal="1">
+      <button class="modal-btn js-modal-close">
+        <svg class="icon" width="28" height="28">
+          <use href="./icons/icons.svg#icon-modal-close"></use>
+        </svg>
+      </button>
+      <strong class="modal-title"
+        >LEAVE A REVIEW ABOUT <span class="accent-title">OUR CHOCOLATE</span></strong
+      >
+      <form class="modal-form">
+        <label class="modal-form-group">
+          <span class="modal-form-label">Name</span>
+          <input
+            class="modal-form-input"
+            type="text"
+            name="user-name"
+            minlength="3"
+            placeholder="&nbsp;"
+            required
+          />
+          <span class="alert alert-warning"> Имя должно состоять минимум из 3 символов </span>
+          <svg class="alert-icon alert-icon-warning" width="18" height="18">
+            <use href="./icons/icons.svg#icon-warning"></use>
+          </svg>
+          <span class="alert alert-error"> Вы ввели не корректные данные </span>
+          <svg class="alert-icon alert-icon-error" width="18" height="18">
+            <use href="./icons/icons.svg#icon-error"></use>
+          </svg>
+          <svg class="modal-form-icon" width="20" height="20">
+            <use href="./icons/icons.svg#icon-user"></use>
+          </svg>
+        </label>
+        <label class="modal-form-group">
+          <span class="modal-form-label">Phone number</span>
+          <input
+            class="modal-form-input"
+            type="phone"
+            minlength="10"
+            name="user-phone"
+            placeholder="&nbsp;"
+            pattern="^\+380\d{9}$"
+            title="Please enter a valid Ukrainian phone number starting with +380 followed by 9 digits."
+            required
+          />
+          <span class="alert alert-warning">
+            Введите номер телефона в формате +38 099 123 45 67
+          </span>
+          <svg class="alert-icon alert-icon-warning" width="15" height="15">
+            <use href="./icons/icons.svg#icon-warning"></use>
+          </svg>
+          <span class="alert alert-error"> Вы ввели не корректные данные </span>
+          <svg class="alert-icon alert-icon-error" width="15" height="15">
+            <use href="./icons/icons.svg#icon-error"></use>
+          </svg>
+          <svg class="modal-form-icon" width="20" height="20">
+            <use href="./icons/icons.svg#icon-phone"></use>
+          </svg>
+        </label>
+        <label class="modal-form-group">
+          <span class="modal-form-label">Email</span>
+          <input
+            class="modal-form-input"
+            type="mail"
+            name="user-mail"
+            placeholder="&nbsp;"
+            pattern="/^[^\s@]+@[^\s@]+\.[^\s@]+$/"
+            title="Please enter a valid email address."
+            required
+          />
+          <span class="alert alert-warning"> Введите почту в формате example@mail.com </span>
+          <svg class="alert-icon alert-icon-warning" width="15" height="15">
+            <use href="./icons/icons.svg#icon-warning"></use>
+          </svg>
+          <span class="alert alert-error"> Вы ввели не корректные данные </span>
+          <svg class="alert-icon alert-icon-error" width="15" height="15">
+            <use href="./icons/icons.svg#icon-error"></use>
+          </svg>
+          <svg class="modal-form-icon" width="20" height="20">
+            <use href="./icons/icons.svg#icon-mail-modal"></use>
+          </svg>
+        </label>
+        <label class="modal-form-group">
+          <span class="modal-form-label">Comment</span>
+          <textarea
+            class="modal-form-comment"
+            name="user-comment"
+            placeholder="Enter text"
+          ></textarea>
+        </label>
+        <label class="modal-form-policy-group">
+          <input
+            class="modal-form-checkbox visually-hidden"
+            type="checkbox"
+            tabindex="-1"
+            id="chk1-label"
+            data-modal-checkbox
+            checked
+          />
+          <span
+            class="modal-form-custom-checkbox"
+            tabindex="0"
+            role="checkbox"
+            aria-checked="false"
+            aria-labelledby="chk1-label"
+          >
+            <svg class="modal-form-custom-checkbox-icon" width="18" height="18">
+              <use href="./icons/icons.svg#icon-check"></use>
+            </svg>
+          </span>
+          <span class="modal-form-policy-desc"
+            >I accept the terms and conditions of the
+            <a class="modal-form-policy-link" href="#"> Privacy Policy</a>данных
+          </span>
+        </label>
+        <button class="modal-from-btn" type="submit" data-submit-btn>Send</button>
+      </form>
+    </div>
 
     <button class="scroll-to-top js-transparent" type="button">
       <svg class="scroll-to-top-icon" width="26" height="26">

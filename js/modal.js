@@ -1,84 +1,109 @@
-const modalOpenButtons = document.querySelectorAll('[data-open-modal]');
-const modalCloseButtons = document.querySelectorAll('[data-close-modal]');
-const body = document.querySelector('body');
-let isModalOpen = false;
+!(function (e) {
+  'function' != typeof e.matches &&
+    (e.matches =
+      e.msMatchesSelector ||
+      e.mozMatchesSelector ||
+      e.webkitMatchesSelector ||
+      function (e) {
+        for (
+          var t = this, o = (t.document || t.ownerDocument).querySelectorAll(e), n = 0;
+          o[n] && o[n] !== t;
 
-modalCloseButtons.forEach(closeBtn => {
-  closeBtn.addEventListener('click', e => {
-    modalClose(closeBtn.closest('[data-modal]'));
+        )
+          ++n;
+        return Boolean(o[n]);
+      }),
+    'function' != typeof e.closest &&
+      (e.closest = function (e) {
+        for (var t = this; t && 1 === t.nodeType; ) {
+          if (t.matches(e)) return t;
+          t = t.parentNode;
+        }
+        return null;
+      });
+})(window.Element.prototype);
+
+document.addEventListener('DOMContentLoaded', function () {
+  var modalButtons = document.querySelectorAll('.js-open-modal'),
+    overlay = document.querySelector('.js-overlay-modal'),
+    closeButtons = document.querySelectorAll('.js-modal-close');
+
+  modalButtons.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      var modalId = this.getAttribute('data-modal'),
+        modalElem = document.querySelector('.modal[data-modal="' + modalId + '"]');
+
+      modalElem.classList.add('active');
+      overlay.classList.add('active');
+      document.body.classList.add('modal-open');
+      document.body.classList.remove('is-menu-shown');
+    });
+  });
+
+  closeButtons.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      var parentModal = this.closest('.modal');
+
+      parentModal.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    });
+  });
+
+  document.body.addEventListener(
+    'keyup',
+    function (e) {
+      var key = e.keyCode;
+
+      if (key === 27) {
+        document.querySelector('.modal.active').classList.remove('active');
+        document.querySelector('.overlay').classList.remove('active');
+      }
+    },
+    false
+  );
+
+  overlay.addEventListener('click', function () {
+    document.querySelector('.modal.active').classList.remove('active');
+    this.classList.remove('active');
+    document.body.classList.remove('modal-open');
   });
 });
 
-modalOpenButtons.forEach(modalBtn => {
-  modalBtn.addEventListener('click', e => {
-    const modalName = modalBtn.getAttribute('data-open-modal');
-    const currentModal = document.querySelector(`[data-modal="${modalName}"]`);
+// (() => {
+//   const refs = {
+//     openModalBtn: document.querySelectorAll('[data-modal-open]'),
+//     closeModalBtn: document.querySelector('[data-modal-close]'),
+//     modal: document.querySelector('[data-modal]'),
+//   };
+//   let isShown = false;
 
-    modalOpen(currentModal);
-  });
-});
+//   refs.openModalBtn.forEach(el => el.addEventListener('click', toggleModal));
+//   refs.closeModalBtn.addEventListener('click', toggleModal);
+//   refs.modal.addEventListener('click', onBackdropClick);
 
-function modalOpen(currentModal) {
-  const form = currentModal.querySelector('form');
+//   function toggleModal() {
+//     refs.modal.classList.toggle('is-hidden');
+//     document.body.classList.toggle('is-modal-shown');
+//     isShown
+//       ? document.body.removeEventListener('keydown', onKeyDown)
+//       : document.body.addEventListener('keydown', onKeyDown);
+//     isShown = !isShown;
 
-  currentModal.classList.remove('is-hidden');
-  bodyLock();
-  isModalOpen = true;
+//     if (isShown) {
+//       document.body.classList.remove('is-menu-shown');
+//     }
+//   }
 
-  document.addEventListener('keydown', onEscOrClick);
-  currentModal.addEventListener('click', onEscOrClick);
+//   function onBackdropClick(event) {
+//     if (event.target != event.currentTarget) return;
+//     toggleModal();
+//   }
 
-  function onEscOrClick(e) {
-    if (e.which === 27 || e.target === currentModal) {
-      modalClose(currentModal);
-      document.removeEventListener('keydown', onEscOrClick);
-      currentModal.removeEventListener('click', onEscOrClick);
-    }
-  }
-
-  if (!form) {
-    return;
-  }
-
-  form.addEventListener('submit', onSubmit);
-
-  function onSubmit(e) {
-    e.preventDefault();
-    modalClose(currentModal);
-
-    const modalName = form.getAttribute('data-form');
-    if (modalName) {
-      const currentModal = document.querySelector(`[data-modal="${modalName}"]`);
-      modalOpen(currentModal);
-    }
-
-    e.target.reset();
-    form.removeEventListener('submit', onSubmit);
-  }
-}
-
-function modalClose(modalActive) {
-  modalActive.classList.add('is-hidden');
-  isModalOpen = false;
-  modalActive.addEventListener('transitionend', onTransitionEnd);
-
-  function onTransitionEnd() {
-    modalActive.removeEventListener('transitionend', onTransitionEnd);
-    bodyUnLock();
-  }
-}
-
-function bodyLock() {
-  const scrollbarWidth = window.innerWidth - body.offsetWidth + 'px';
-  const bodyPaddingRight = body.style.paddingRight;
-
-  body.style.overflow = 'hidden';
-  body.style.paddingRight = !bodyPaddingRight ? scrollbarWidth : bodyPaddingRight;
-}
-
-function bodyUnLock() {
-  if (!isModalOpen) {
-    body.style.removeProperty('overflow');
-    body.style.removeProperty('padding-right');
-  }
-}
+//   function onKeyDown(event) {
+//     if (event.code !== 'Escape') return;
+//     toggleModal();
+//   }
+// })();
