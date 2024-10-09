@@ -55,11 +55,12 @@ document.addEventListener('DOMContentLoaded', function () {
   document.body.addEventListener(
     'keyup',
     function (e) {
-      var key = e.keyCode;
+      var key = e.key;
 
-      if (key === 27) {
+      if (key === 'Escape') {
         document.querySelector('.modal.active').classList.remove('active');
-        document.querySelector('.overlay').classList.remove('active');
+        document.querySelector('.modal-overlay').classList.remove('active');
+        document.body.classList.remove('modal-open');
       }
     },
     false
