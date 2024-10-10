@@ -160,7 +160,7 @@ function markup(products, startIndex, endIndex) {
               <p class="products-item-text">${description}</p>
               <div class="basket-container">
                 <button type="button" class="products-item-price">${price} UAH</button>
-                <button type="button" class="products-item-price js-open-modal" data-modal="2">
+                <button type="button" class="products-item-price js-add js-open-modal"  data-modal="2">
                   <svg class="basket-icon" width="16" height="16">
                     <use href="./icons/icons.svg#icon-shopping-basket"></use>
                   </svg>
@@ -196,4 +196,99 @@ function smoothScrolling() {
     top: cardHeight,
     behavior: 'smooth',
   });
+}
+
+const basket = [];
+
+const btnAdd = document.querySelector('.js-add');
+
+productList.addEventListener('click', onBasket);
+function onBasket(evt) {
+  if (evt.target.classList.contains('js-add')) {
+    const currentProduct = evt.target.closest('.products-item');
+    const currentId = Number(currentProduct.dataset.id);
+    const toBasket = products.find(({ id }) => id === currentId);
+
+    const productInBasket = basket.find(({ id }) => id === currentId);
+
+    if (!productInBasket) {
+      toBasket.qty = 1;
+      toBasket.sum = toBasket.price;
+      basket.push(toBasket);
+    } else {
+      productInBasket.qty += 1;
+      toBasket.sum = productInBasket.qty * toBasket.price;
+    }
+    renderBasket();
+  }
+}
+
+const basketList = document.querySelector('.basket-list');
+const basketMarkup = () =>
+  basket.reduce(
+    (acc, { image: { src }, alt, title, qty, sum }) =>
+      acc +
+      `<li class="basket-item">
+            <div class="product-card">
+              <img src="${src}"  alt="${alt}" class="product-img" width="120"/>
+              <p class="product-title">${title}</p>
+              <input
+                class="js-product-qty"
+                type="number"
+                name="product-qty"
+                value="${qty || 1}"
+                min="0"
+                max="10"
+                data-id="${src}"  
+              />
+               <p class="product-sum">${sum} UAH</p>
+               <button type="button" class="product-delete" data-id="${src}">
+                <svg class="product-delete-icon" width="18" height="18">
+                  <use href="./icons/icons.svg#icon-modal-close"></use>
+                </svg>
+              </button>
+            </div>
+          </li>`,
+    ''
+  );
+
+function renderBasket() {
+  basketList.innerHTML = '';
+  basketList.insertAdjacentHTML('beforeend', basketMarkup());
+
+  const qtyInputs = document.querySelectorAll('.js-product-qty');
+  qtyInputs.forEach(input => {
+    input.addEventListener('change', updateProductQty);
+  });
+
+  const deleteButtons = document.querySelectorAll('.product-delete');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', removeProductFromBasket);
+  });
+}
+
+function updateProductQty(evt) {
+  const newQty = Number(evt.target.value);
+  const productId = evt.target.dataset.id;
+
+  const productInBasket = basket.find(item => item.src === productId);
+  if (productInBasket) {
+    if (newQty <= 0) {
+      removeProductFromBasket({ target: { dataset: { id: productId } } });
+    } else {
+      productInBasket.qty = newQty;
+      productInBasket.sum = productInBasket.qty * productInBasket.price;
+      renderBasket();
+    }
+  }
+}
+
+function removeProductFromBasket(evt) {
+  const productId = evt.target.dataset.id;
+  const productIndex = basket.findIndex(item => item.src === productId);
+
+  if (productIndex !== -1) {
+    basket.splice(productIndex, 1);
+    renderBasket();
+  }
 }
