@@ -163,12 +163,16 @@ function onSubmitForm(evt) {
   }));
 
   console.log('basketData: ', basketData);
+  if (basketData.length === 0) {
+    alert('Opps, it is empty');
+    return;
+  }
 
   localStorage.removeItem('basket-list');
   alert('Basket submitted successfully!');
-
   resetBasket();
 }
+
 function resetBasket() {
   basket.length = 0;
 
