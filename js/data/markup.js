@@ -12,7 +12,7 @@ const products = [
   },
   {
     id: 2,
-    title: 'APPLE&CRANBERRY',
+    title: 'CRANBERRY',
     image: {
       srcset: [
         './images/products/apple&cranberry-1x.png 1x',
@@ -139,18 +139,31 @@ const products = [
     price: 54,
   },
 ];
+
 const PRODUCTS_PER_PAGE = 8;
 let currentPage = 1;
-
-const productList = document.querySelector('.products-list');
+const basket = [];
+const basketList = document.querySelector('.basket-list');
 const loadMoreBtn = document.querySelector('.load-more');
+loadMoreBtn.addEventListener('click', onLoadMore);
+const productList = document.querySelector('.products-list');
+productList.insertAdjacentHTML('beforeend', productMarkup(products, 0, PRODUCTS_PER_PAGE));
+productList.addEventListener('click', onBasket);
 
-function markup(products, startIndex, endIndex) {
-  return products.slice(startIndex, endIndex).reduce(
-    (acc, { image: { srcset }, src, alt, description, price, title, id }) =>
-      acc +
-      `       <li class="products-item" data-id='${id}'>
-              <img
+loadBasketFromLocalStorage();
+
+function productMarkup(products, startIndex, endIndex) {
+  return products
+    .slice(startIndex, endIndex)
+    .reduce((acc, { image: { srcset, src, alt }, description, price, title, id }) => {
+      const productInBasket = basket.find(({ id: basketId }) => basketId === id);
+      const buttonText = productInBasket ? 'ADDED' : 'BUY';
+      const buttonDisabled = productInBasket ? 'disabled' : '';
+
+      return (
+        acc +
+        `       <li class="products-item" data-id='${id}'>
+                <img
                 srcset="${srcset[0]}, ${srcset[1]}"
                 src="${src}"
                 alt="${alt}"
@@ -160,24 +173,93 @@ function markup(products, startIndex, endIndex) {
               <p class="products-item-text">${description}</p>
               <div class="basket-container">
                 <button type="button" class="products-item-price">${price} UAH</button>
-                <button type="button" class="products-item-price js-add js-open-modal"  data-modal="2">
-                  <svg class="basket-icon" width="16" height="16">
-                    <use href="./icons/icons.svg#icon-shopping-basket"></use>
-                  </svg>
+                <button type="button" class="products-item-price js-add js-open-modal" ${buttonDisabled} data-modal="2">
+                  ${buttonText}
                 </button>
               </div>
-            </li>  `,
+            </li>`
+      );
+    }, '');
+}
+
+function basketMarkup() {
+  return basket.reduce(
+    (acc, { image: { src }, alt, title, qty, sum, id }) =>
+      acc +
+      `<li class="basket-item">
+            <div class="product-card">
+              <img src="${src}"  alt="${alt}" class="product-img" width="120"/>
+              <p class="product-title">${title}</p>
+              <input
+                class="js-product-qty"
+                type="number"
+                name="product-qty"
+                value="${qty}"
+                min="1"
+                max="10"
+                data-id="${id}"    
+              />
+               <p class="product-sum">${sum} UAH</p>
+               <button type="button" class="product-delete" data-id="${id}">
+                <svg class="product-delete-icon" width="18" height="18">
+                  <use href="./icons/icons.svg#icon-modal-close"></use>
+                </svg>
+              </button>
+            </div>
+          </li>`,
     ''
   );
 }
 
-productList.insertAdjacentHTML('beforeend', markup(products, 0, PRODUCTS_PER_PAGE));
+function loadBasketFromLocalStorage() {
+  const savedBasket = localStorage.getItem('basket-list');
+  if (savedBasket) {
+    const parsedBasket = JSON.parse(savedBasket);
+    parsedBasket.forEach(item => {
+      basket.push(item);
+    });
 
-loadMoreBtn.addEventListener('click', () => {
+    renderBasket();
+    updateProductButtons();
+  }
+}
+
+function saveBasketToLocalStorage() {
+  localStorage.setItem('basket-list', JSON.stringify(basket));
+}
+
+function updateProductButtons() {
+  const productItems = document.querySelectorAll('.products-item');
+  productItems.forEach(item => {
+    const productId = Number(item.dataset.id);
+    const productInBasket = basket.find(({ id }) => id === productId);
+    const button = item.querySelector('.js-add');
+
+    if (productInBasket) {
+      button.innerHTML = 'Added';
+      button.disabled = true;
+    }
+  });
+}
+
+function renderBasket() {
+  basketList.innerHTML = '';
+  basketList.insertAdjacentHTML('beforeend', basketMarkup());
+
+  const inputs = document.querySelectorAll('.js-product-qty');
+  inputs.forEach(input => input.addEventListener('change', updateProductQty));
+
+  const deleteButtons = document.querySelectorAll('.product-delete');
+  deleteButtons.forEach(button => button.addEventListener('click', removeProductFromBasket));
+
+  saveBasketToLocalStorage();
+}
+
+function onLoadMore() {
   const startIndex = currentPage * PRODUCTS_PER_PAGE;
   const endIndex = startIndex + PRODUCTS_PER_PAGE;
 
-  productList.insertAdjacentHTML('beforeend', markup(products, startIndex, endIndex));
+  productList.insertAdjacentHTML('beforeend', productMarkup(products, startIndex, endIndex));
 
   currentPage++;
   smoothScrolling();
@@ -185,7 +267,7 @@ loadMoreBtn.addEventListener('click', () => {
   if (endIndex >= products.length) {
     loadMoreBtn.style.display = 'none';
   }
-});
+}
 
 function smoothScrolling() {
   const { height: cardHeight } = document
@@ -198,11 +280,6 @@ function smoothScrolling() {
   });
 }
 
-const basket = [];
-
-const btnAdd = document.querySelector('.js-add');
-
-productList.addEventListener('click', onBasket);
 function onBasket(evt) {
   if (evt.target.classList.contains('js-add')) {
     const currentProduct = evt.target.closest('.products-item');
@@ -215,80 +292,48 @@ function onBasket(evt) {
       toBasket.qty = 1;
       toBasket.sum = toBasket.price;
       basket.push(toBasket);
+      evt.target.innerHTML = 'Added';
+      evt.target.disabled = true;
     } else {
       productInBasket.qty += 1;
       toBasket.sum = productInBasket.qty * toBasket.price;
     }
+
     renderBasket();
   }
-}
-
-const basketList = document.querySelector('.basket-list');
-const basketMarkup = () =>
-  basket.reduce(
-    (acc, { image: { src }, alt, title, qty, sum }) =>
-      acc +
-      `<li class="basket-item">
-            <div class="product-card">
-              <img src="${src}"  alt="${alt}" class="product-img" width="120"/>
-              <p class="product-title">${title}</p>
-              <input
-                class="js-product-qty"
-                type="number"
-                name="product-qty"
-                value="${qty || 1}"
-                min="0"
-                max="10"
-                data-id="${src}"  
-              />
-               <p class="product-sum">${sum} UAH</p>
-               <button type="button" class="product-delete" data-id="${src}">
-                <svg class="product-delete-icon" width="18" height="18">
-                  <use href="./icons/icons.svg#icon-modal-close"></use>
-                </svg>
-              </button>
-            </div>
-          </li>`,
-    ''
-  );
-
-function renderBasket() {
-  basketList.innerHTML = '';
-  basketList.insertAdjacentHTML('beforeend', basketMarkup());
-
-  const qtyInputs = document.querySelectorAll('.js-product-qty');
-  qtyInputs.forEach(input => {
-    input.addEventListener('change', updateProductQty);
-  });
-
-  const deleteButtons = document.querySelectorAll('.product-delete');
-  deleteButtons.forEach(button => {
-    button.addEventListener('click', removeProductFromBasket);
-  });
 }
 
 function updateProductQty(evt) {
   const newQty = Number(evt.target.value);
-  const productId = evt.target.dataset.id;
+  const productId = Number(evt.target.dataset.id);
 
-  const productInBasket = basket.find(item => item.src === productId);
-  if (productInBasket) {
-    if (newQty <= 0) {
-      removeProductFromBasket({ target: { dataset: { id: productId } } });
-    } else {
-      productInBasket.qty = newQty;
-      productInBasket.sum = productInBasket.qty * productInBasket.price;
-      renderBasket();
-    }
+  const productInBasket = basket.find(({ id }) => id === productId);
+
+  if (productInBasket && newQty <= 0) {
+    removeProductFromBasket(evt);
+  } else {
+    productInBasket.qty = newQty;
+    productInBasket.sum = productInBasket.qty * productInBasket.price;
   }
+  renderBasket();
 }
 
 function removeProductFromBasket(evt) {
-  const productId = evt.target.dataset.id;
-  const productIndex = basket.findIndex(item => item.src === productId);
+  const button = evt.target.closest('.product-delete');
+
+  if (!button) return;
+
+  const productId = Number(button.dataset.id);
+  const productIndex = basket.findIndex(({ id }) => id === productId);
 
   if (productIndex !== -1) {
     basket.splice(productIndex, 1);
     renderBasket();
+
+    const productItem = productList.querySelector(`[data-id="${productId}"]`);
+    const addButton = productItem.querySelector('.js-add');
+
+    addButton.innerHTML = 'BUY';
+    addButton.disabled = false;
   }
 }
