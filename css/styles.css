@@ -935,7 +935,10 @@ body {
 
 .products-item-price {
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
+  min-width: 94px;
   padding: 6px 16px;
   font-weight: 600;
   font-size: 14px;
@@ -947,7 +950,12 @@ body {
   border-radius: 100px;
   outline: none;
   cursor: pointer;
-  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+  transition: background-color var(--time) var(--cubic), color var(--time) var(--cubic),
+    border-color var(--time) var(--cubic);
+}
+
+.basket-icon {
+  transition: fill var(--time) var(--cubic);
 }
 
 .products-item-price:hover,
@@ -955,6 +963,11 @@ body {
   background-color: #fd9222;
   color: #fafafa;
   border-color: transparent;
+}
+
+.products-item-price:hover .basket-icon,
+.products-item-price:focus .basket-icon {
+  fill: #fafafa;
 }
 
 .sellers {
@@ -1439,6 +1452,20 @@ body {
   border-radius: 50%;
 }
 
+.main-basket {
+  bottom: 75px;
+  right: 3%;
+  padding: 10px;
+}
+
+.main-basket-icon {
+  transition: fill var(--time) var(--cubic);
+}
+
+.main-basket:hover .main-basket-icon {
+  fill: red;
+}
+
 .js-transparent {
   opacity: 0;
   pointer-events: none;
@@ -1449,4 +1476,68 @@ body {
     width: 35px;
     height: 35px;
   }
+}
+
+.basket-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.basket-item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 15px;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .product-card {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.js-product-qty {
+  display: block;
+  text-align: center;
+}
+
+.product-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.product-delete-icon {
+  fill: rgba(17, 17, 17, 0.7);
+}
+
+.load-more {
+  display: block;
+  margin: 32px auto auto;
+  outline: 1px solid #fd9222;
+  border-radius: 100px;
+  padding: 12px 28px;
+  min-width: 165px;
+  height: 41px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  color: #111;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  transition: color 250ms ease, border-color 250ms ease;
 }

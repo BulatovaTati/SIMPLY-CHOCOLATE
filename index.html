@@ -93,7 +93,7 @@
             Treat yourself or a loved one to our finest ingredients for a moment of pure delight!
           </h1>
           <div class="hero-buttons">
-            <button type="button" class="hero-btn btn">Buy now</button>
+            <a href="#products" class="hero-btn btn">Buy now</a>
             <a href="#made" class="hero-second-btn btn">How it’s made</a>
             <a href="#products" class="hero-scroll-btn"
               >scroll down
@@ -547,111 +547,8 @@
       <section class="products" id="products">
         <div class="container">
           <h2 class="products-title title">Our <span class="accent-title">PRODUCTS</span></h2>
-          <ul class="products-list">
-            <li class="products-item">
-              <img
-                srcset="./images/products/orange-1x.png 1x, ./images/products/orange-2x.png 2x"
-                src="./images/products/orange-1x.png"
-                alt="orange"
-                class="products-item-image"
-              />
-              <h3 class="products-item-title">orange</h3>
-              <p class="products-item-text">Dark chocolate</p>
-              <button type="button" class="products-item-price">45 UAH</button>
-            </li>
-            <li class="products-item">
-              <img
-                srcset="
-                  ./images/products/apple&cranberry-1x.png 1x,
-                  ./images/products/apple&cranberry-2x.png 2x
-                "
-                src="./images/products/apple&cranberry-1x.png"
-                alt="APPLE&CRANBERRY"
-                class="products-item-image"
-              />
-              <h3 class="products-item-title">APPLE&CRANBERRY</h3>
-              <p class="products-item-text">Milk chocolate</p>
-              <button type="button" class="products-item-price">50 UAH</button>
-            </li>
-            <li class="products-item">
-              <img
-                srcset="./images/products/lime-1x.png 1x, ./images/products/lime-2x.png 2x"
-                src="./images/products/lime-1x.png"
-                alt="lime&sea salt"
-                class="products-item-image"
-              />
-              <h3 class="products-item-title">lime&sea salt</h3>
-              <p class="products-item-text">Dark chocolate</p>
-              <button type="button" class="products-item-price">66 UAH</button>
-            </li>
-            <li class="products-item">
-              <img
-                srcset="
-                  ./images/products/pineapple-1x.png 1x,
-                  ./images/products/pineapple-2x.png 2x
-                "
-                src="./images/products/pineapple-1x.png"
-                alt="pineapple"
-                class="products-item-image"
-              />
-              <h3 class="products-item-title">pineapple</h3>
-              <p class="products-item-text">Dark chocolate</p>
-              <button type="button" class="products-item-price">54 UAH</button>
-            </li>
-            <li class="products-item">
-              <img
-                srcset="
-                  ./images/products/classic-milk-1x.png 1x,
-                  ./images/products/classic-milk-2x.png 2x
-                "
-                src=" ./images/products/classic-milk-1x.png "
-                alt="Classic"
-                class="products-item-image"
-              />
-              <h3 class="products-item-title">Classic</h3>
-              <p class="products-item-text">Milk chocolate</p>
-              <button type="button" class="products-item-price">45 UAH</button>
-            </li>
-            <li class="products-item">
-              <img
-                srcset="./images/products/honey-1x.png 1x, ./images/products/honey-2x.png 2x"
-                src="./images/products/honey-1x.png 1x"
-                alt="honey"
-                class="products-item-image"
-              />
-              <h3 class="products-item-title">honey</h3>
-              <p class="products-item-text">Milk chocolate</p>
-              <button type="button" class="products-item-price">50 UAH</button>
-            </li>
-            <li class="products-item">
-              <img
-                srcset="
-                  ./images/products/roasted-f-1x.png 1x,
-                  ./images/products/roasted-f-2x.png 2x
-                "
-                src="./images/products/roasted-f-1x.png"
-                alt="Roasted fruits"
-                class="products-item-image"
-              />
-              <h3 class="products-item-title">Roasted fruits</h3>
-              <p class="products-item-text">Dark chocolate</p>
-              <button type="button" class="products-item-price">66 UAH</button>
-            </li>
-            <li class="products-item">
-              <img
-                srcset="
-                  ./images/products/classic-white-1x.png 1x,
-                  ./images/products/classic-white-2x.png 2x
-                "
-                src="./images/products/classic-white-1x.png"
-                alt="Classic"
-                class="products-item-image"
-              />
-              <h3 class="products-item-title">Classic</h3>
-              <p class="products-item-text">White chocolate</p>
-              <button type="button" class="products-item-price">54 UAH</button>
-            </li>
-          </ul>
+          <ul class="products-list"></ul>
+          <button type="button" class="load-more">Load more</button>
         </div>
       </section>
       <section class="sellers" id="sellers">
@@ -1114,13 +1011,109 @@
       </form>
     </div>
 
+    <div class="modal" data-modal="2">
+      <button class="modal-btn js-modal-close">
+        <svg class="icon" width="28" height="28">
+          <use href="./icons/icons.svg#icon-modal-close"></use>
+        </svg>
+      </button>
+      <strong class="modal-title">Your <span class="accent-title">Basket</span></strong>
+      <div class="basket-wrapper">
+        <ul class="basket-list">
+          <!-- <li class="basket-item">
+            <div class="product-card">
+              <img src="" alt="" class="product-img"  width="120"/>
+              <p class="product-title"></p>
+              <input
+                class="js-product-qty"
+                type="number"
+                name="product-1"
+                value="0"
+                min="0"
+                max="10"
+              />
+               <p class="product-sum"></p>
+               <button type="button" class="product-delete">
+                <svg class="product-delete-icon" width="18" height="18">
+                  <use href="./icons/icons.svg#icon-modal-close"></use>
+                </svg>
+              </button>
+            </div>
+          </li> -->
+          <!-- <li class="basket-item">
+            <div class="product-card">
+              <img
+                src="./images/products/classic-white-1x.png"
+                alt=""
+                class="product-img"
+                width="120"
+              />
+              <p class="product-title">Classic</p>
+              <input
+                class="js-product-qty"
+                type="number"
+                name="product-1"
+                value="0"
+                min="0"
+                max="10"
+              />
+              <p class="product-sum">
+                54
+                <span>UAH</span>
+              </p>
+              <button type="button" class="product-delete">
+                <svg class="product-delete-icon" width="18" height="18">
+                  <use href="./icons/icons.svg#icon-modal-close"></use>
+                </svg>
+              </button>
+            </div>
+          </li>
+          <li class="basket-item">
+            <div class="product-card">
+              <img
+                src="./images/products/classic-white-1x.png"
+                alt=""
+                class="product-img"
+                width="120"
+              />
+              <p class="product-title">Classic</p>
+              <input
+                class="js-product-qty"
+                type="number"
+                name="product-1"
+                value="0"
+                min="0"
+                max="10"
+              />
+              <p class="product-sum">
+                54
+                <span>UAH</span>
+              </p>
+              <button type="button" class="product-delete">
+                <svg class="product-delete-icon" width="18" height="18">
+                  <use href="./icons/icons.svg#icon-modal-close"></use>
+                </svg>
+              </button>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+
     <button class="scroll-to-top js-transparent" type="button">
       <svg class="scroll-to-top-icon" width="26" height="26">
         <use href="./icons/icons.svg#icon-to-top"></use>
       </svg>
     </button>
 
+    <button class="main-basket scroll-to-top js-open-modal" type="button" data-modal="2">
+      <svg class="main-basket-icon scroll-to-top-icon" width="26" height="26">
+        <use href="./icons/icons.svg#icon-basket"></use>
+      </svg>
+    </button>
     <script src="./js/to-top.js"></script>
+    <script src="./js/data/markup.js"></script>
+
     <script src="./js/menu.js"></script>
     <script src="./js/modal.js"></script>
     <script src="./js/flip-card.js"></script>
