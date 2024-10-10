@@ -149,6 +149,39 @@ loadMoreBtn.addEventListener('click', onLoadMore);
 const productList = document.querySelector('.products-list');
 productList.insertAdjacentHTML('beforeend', productMarkup(products, 0, PRODUCTS_PER_PAGE));
 productList.addEventListener('click', onBasket);
+const form = document.querySelector('.basket-form');
+
+form.addEventListener('submit', onSubmitForm);
+function onSubmitForm(evt) {
+  evt.preventDefault();
+
+  const basketData = basket.map(({ id, title, qty, sum }) => ({
+    id,
+    title,
+    qty,
+    sum,
+  }));
+
+  console.log('basketData: ', basketData);
+
+  localStorage.removeItem('basket-list');
+  alert('Basket submitted successfully!');
+
+  resetBasket();
+}
+function resetBasket() {
+  basket.length = 0;
+
+  saveBasketToLocalStorage();
+  renderBasket();
+
+  const productItems = document.querySelectorAll('.products-item');
+  productItems.forEach(item => {
+    const button = item.querySelector('.js-add');
+    button.innerHTML = 'BUY';
+    button.disabled = false;
+  });
+}
 
 loadBasketFromLocalStorage();
 
