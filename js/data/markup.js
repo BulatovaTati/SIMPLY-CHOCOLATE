@@ -140,18 +140,22 @@ const products = [
   },
 ];
 
+const refs = {
+  basketList: document.querySelector('.basket-list'),
+  loadMoreBtn: document.querySelector('.load-more'),
+  productList: document.querySelector('.products-list'),
+  basketForm: document.querySelector('.basket-form'),
+};
+const { basketList, loadMoreBtn, productList, basketForm } = refs;
 const PRODUCTS_PER_PAGE = 8;
 let currentPage = 1;
 const basket = [];
-const basketList = document.querySelector('.basket-list');
-const loadMoreBtn = document.querySelector('.load-more');
+
 loadMoreBtn.addEventListener('click', onLoadMore);
-const productList = document.querySelector('.products-list');
 productList.insertAdjacentHTML('beforeend', productMarkup(products, 0, PRODUCTS_PER_PAGE));
 productList.addEventListener('click', onBasket);
-const form = document.querySelector('.basket-form');
+basketForm.addEventListener('submit', onSubmitForm);
 
-form.addEventListener('submit', onSubmitForm);
 function onSubmitForm(evt) {
   evt.preventDefault();
 
@@ -281,7 +285,15 @@ function updateProductButtons() {
 
 function renderBasket() {
   basketList.innerHTML = '';
-  basketList.insertAdjacentHTML('beforeend', basketMarkup());
+
+  if (basket.length === 0) {
+    basketList.insertAdjacentHTML(
+      'beforeend',
+      "<li class='product-card'><p>It's empty</p><p>☹</p></li>"
+    );
+  } else {
+    basketList.insertAdjacentHTML('beforeend', basketMarkup());
+  }
 
   const inputs = document.querySelectorAll('.js-product-qty');
   inputs.forEach(input => input.addEventListener('change', updateProductQty));
