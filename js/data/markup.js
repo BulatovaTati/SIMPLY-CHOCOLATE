@@ -148,6 +148,7 @@ const refs = {
 };
 const { basketList, loadMoreBtn, productList, basketForm } = refs;
 const PRODUCTS_PER_PAGE = 8;
+const BASKET_KEY = 'basket-list';
 let currentPage = 1;
 const basket = [];
 
@@ -172,7 +173,7 @@ function onSubmitForm(evt) {
     return;
   }
 
-  localStorage.removeItem('basket-list');
+  localStorage.removeItem(BASKET_KEY);
   alert('Basket submitted successfully!');
   resetBasket();
 }
@@ -253,7 +254,7 @@ function basketMarkup() {
 }
 
 function loadBasketFromLocalStorage() {
-  const savedBasket = localStorage.getItem('basket-list');
+  const savedBasket = localStorage.getItem(BASKET_KEY);
   if (savedBasket) {
     const parsedBasket = JSON.parse(savedBasket);
     parsedBasket.forEach(item => {
@@ -266,7 +267,7 @@ function loadBasketFromLocalStorage() {
 }
 
 function saveBasketToLocalStorage() {
-  localStorage.setItem('basket-list', JSON.stringify(basket));
+  localStorage.setItem(BASKET_KEY, JSON.stringify(basket));
 }
 
 function updateProductButtons() {
