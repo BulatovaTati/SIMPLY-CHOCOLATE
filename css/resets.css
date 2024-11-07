@@ -43,3 +43,7 @@ ol {
 address {
   font-style: normal;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
